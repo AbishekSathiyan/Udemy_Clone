@@ -2,7 +2,7 @@
 Devoloping Udemy Clone Project using HTML,CSS Learned in Error Makes Clever by Abishek S
 
 # Udemy Clone Project
-
+# Deploy from Github
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Features](#features)
@@ -85,6 +85,6 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use, mod
 ---
 
 ## Credits
-Developed by **Abishek S**.  
+Developed by **Abishek S**  
 Icons provided by [Font Awesome](https://fontawesome.com/).  
 Fonts from [Google Fonts](https://fonts.google.com/).
