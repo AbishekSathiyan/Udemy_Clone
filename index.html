@@ -7,8 +7,9 @@
     <title>Udemy</title>
 
 <!--Icon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/udemy_logo.png">
+    <link rel="icon" href="images/udemy_logo.png" sizes="16x16 32x32 48x48" type="image/png">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/udemy_logo.png">
 
     <!---Google Style Sheet for find fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +37,13 @@
 
         <div class="navbar__s3">
             <p>Courses</p>
-            <p>My Learning</p>
+            <!-- <p>My Learning</p> -->
+             <div class="mylearning">
+                <p>My Learning</p>
+                <div class="mylearning__popup">
+                    <p>You didn't Purchase anything yet..!</p>
+                </div>
+             </div>
             <i class="fa-solid fa-cart-shopping" style="color:black;"></i>
             <i class="fa-sharp fa-solid fa-bell" style="color:black;"></i>
             <i class="fa-solid fa-user" style="color:black;"></i>
@@ -56,6 +63,9 @@
     <!--Sale Image-->
     <div class="sale-image">
         <img src="./images/Sale_Img.jpg" alt="sale image">
+    <div class="sale-image__offer">
+        <h2>Udemy Fash Sale 24 Hours to save.</h2>
+        <p>Get the Top Courses for just ₹499. just one day to save,Lifetime Access to Learn..! </p>
     </div>
 
     <!--Recommended-->
