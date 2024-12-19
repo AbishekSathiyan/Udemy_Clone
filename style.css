@@ -57,6 +57,10 @@ body {
     cursor: pointer;
 }
 
+.navbar__s4{
+    display: none;
+}
+
 /*My Learning Popup*/
 
 .mylearning {
@@ -116,7 +120,7 @@ body {
     background-color: white;
     padding: 2%;
     position:absolute;
-    top: 5%;
+    top: 1%;
     left: 5%;
 }
 
@@ -140,6 +144,7 @@ body {
 .Course-Card {
     width: 250px;
     margin: 5px;
+    flex-grow: 1;
     flex-basis: 20%;
     border: solid 1px #ccc;
     border-radius: 8px;
@@ -224,4 +229,32 @@ body {
 
 .Footer__two h1 {
     color: #A435f0;
+}
+
+
+/*Media Queries*/
+
+@media screen and (max-width: 800px) {
+    body{
+        font-size: 10px;
+    }
+}
+
+/* Mobile View */
+@media screen and (max-width: 600px) {
+    .Course-Card {
+        flex-basis: 40%;
+    }
+
+    .Categories {
+        display: flex;
+    }
+
+    .navbar__s2, .navbar__s3 {
+        display: none;
+    }
+
+    .navbar__s4 {
+        display: block;
+    }
 }
