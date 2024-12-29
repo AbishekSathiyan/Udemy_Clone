@@ -49,6 +49,7 @@ body {
 
 .navbar__s2 input:focus {
     outline: none;
+    border-bottom: 2px solid #A435f0; /* Add focus style */
 }
 
 .navbar__s3 {
@@ -60,31 +61,11 @@ body {
 .navbar__s3 p {
     cursor: pointer;
     font-weight: 500;
+    transition: color 0.3s ease; /* Add transition */
 }
 
-.navbar__s4 {
-    display: none;
-}
-
-/* My Learning Popup */
-.mylearning {
-    position: relative;
-    cursor: pointer;
-}
-
-.mylearning__popup {
-    position: absolute;
-    background-color: white;
-    border: 1px solid black;
-    width: 150px;
-    padding: 15px;
-    right: 0;
-    top: calc(100% + 10px);
-    display: none;
-}
-
-.mylearning:hover .mylearning__popup {
-    display: block;
+.navbar__s3 p:hover {
+    color: #A435f0; /* Change color on hover */
 }
 
 /* Categories Section */
@@ -105,136 +86,12 @@ body {
     border-radius: 30px;
     font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform */
 }
 
 .Categories p:hover {
     background-color: #7228b3;
-}
-
-/* Sale Image Section */
-.sale-image {
-    position: relative;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.sale-image__offer {
-    position: absolute;
-    top: 20%;
-    left: 5%;
-    width: 30%;
-    padding: 15px;
-    background-color: white;
-    border: 2px solid black;
-}
-
-.sale-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Recommended Section */
-.Recommended {
-    padding: 20px;
-    background-color: white;
-}
-
-.Recommended__container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-/* Course Card */
-.Course-Card {
-    flex-basis: calc(25% - 20px);
-    max-width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.Course-Card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.Course-Card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.Course-Card h3 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    padding: 10px 15px;
-}
-
-.Course-Card p {
-    font-size: 14px;
-    color: #555;
-    padding: 0 15px 10px;
-}
-
-/* Topics Section */
-.Topics {
-    padding: 20px;
-    background-color: white;
-}
-
-.Topics__container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-}
-
-.Topics__container p {
-    background-color: #A435f0;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.Topics__container p:hover {
-    background-color: #7228b3;
-}
-
-/* Footer Section */
-.Footer {
-    background-color: black;
-    color: white;
-    padding: 20px 30px;
-}
-
-.Footer__one {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid white;
-    padding-bottom: 15px;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.Footer__two {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.Footer__two h1 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #A435f0;
+    transform: scale(1.05); /* Slightly scale on hover */
 }
 
 /* Media Queries */
@@ -268,13 +125,8 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-    .Categories {
-        flex-direction: column;
-    }
-
-    .sale-image__offer {
-        width: 70%;
-        left: 15%;
+    .navbar__s1__title {
+        font-size: 20px;
     }
 
     .Course-Card {
