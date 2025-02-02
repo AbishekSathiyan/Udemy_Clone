@@ -3,42 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Udemy</title>
-  
-  <!-- Icons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="images/udemy_logo.png">
-  <link rel="icon" href="images/udemy_logo.png" sizes="16x16 32x32 48x48" type="image/png">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
+  <title>Udemy Clone</title>
+
+  <!-- Tailwind CSS via CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  
-  <!-- Font Awesome CDN -->
+
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-  <!-- Optional Custom Styles -->
   <style>
     body {
       font-family: 'Poppins', sans-serif;
     }
+    .menu-item:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<div class="bg-gray-100 text-gray-900">
+
   <!-- Navbar -->
-  <nav class="sticky top-0 z-50 bg-white shadow border-b border-gray-200">
-    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between p-4">
+  <nav class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-200">
+    <div class="container mx-auto flex items-center justify-between p-4">
       <!-- Logo and Title -->
       <div class="flex items-center space-x-3">
         <img src="images/udemy_logo.png" alt="Udemy Logo" class="w-10 h-10">
         <h1 class="text-2xl font-bold text-purple-600">Udemy</h1>
       </div>
-      <!-- Desktop Search -->
+
+      <!-- Search -->
       <div class="hidden md:flex flex-1 mx-4">
         <div class="flex items-center border border-gray-300 rounded-full px-4 py-2 w-full">
           <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
@@ -46,224 +41,151 @@
                  class="ml-2 bg-transparent outline-none w-full text-sm">
         </div>
       </div>
-      <!-- Desktop Navigation -->
+
+      <!-- Desktop Nav Items -->
       <div class="hidden md:flex items-center space-x-6">
-        <a href="#" class="text-gray-800 hover:text-purple-600">Courses</a>
+        <!-- Courses Link with Hover Effect -->
         <div class="relative group">
-          <button class="text-gray-800 hover:text-purple-600">My Learning</button>
-          <div class="absolute hidden group-hover:block bg-white shadow rounded p-2 mt-1">
-            <p class="text-sm text-gray-600">You didn't purchase anything yet..!</p>
+          <a href="#" class="text-gray-800 hover:text-purple-600 hover:bg-gray-200 px-3 py-2 rounded-md transition-all duration-300">Courses</a>
+          <!-- Hover Message -->
+          <div class="absolute hidden bg-gray-800 text-white p-2 rounded text-sm -mt-2 left-0 group-hover:block transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+            No Courses Available
           </div>
         </div>
-        <a href="#" class="text-gray-800 hover:text-purple-600"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="#" class="text-gray-800 hover:text-purple-600"><i class="fa-solid fa-bell"></i></a>
-        <a href="#" class="text-gray-800 hover:text-purple-600"><i class="fa-solid fa-user"></i></a>
-      </div>
-      <!-- Mobile Hamburger Button -->
-      <div class="md:hidden flex items-center">
-        <button id="mobile-menu-button" class="text-2xl focus:outline-none">
-          <i class="fa fa-bars"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Mobile Navigation Menu -->
-    <div id="mobile-menu" class="hidden md:hidden">
-      <div class="px-4 pb-4">
-        <div class="flex items-center border border-gray-300 rounded-full px-4 py-2 mb-4">
-          <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
-          <input type="text" placeholder="Search..." 
-                 class="ml-2 bg-transparent outline-none w-full text-sm">
+      
+        <!-- My Learning Link with Hover Effect -->
+        <a href="#" class="text-gray-800 hover:text-purple-600 hover:bg-gray-200 px-3 py-2 rounded-md transition-all duration-300">My Learning</a>
+      
+        <!-- Cart Icon with Hover Effect -->
+        <a href="#" class="text-gray-800 hover:text-purple-600 hover:bg-gray-200 p-2 rounded-full transition-all duration-300">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+      
+        <!-- Bell Icon with Hover Effect -->
+        <a href="#" class="text-gray-800 hover:text-purple-600 hover:bg-gray-200 p-2 rounded-full transition-all duration-300">
+          <i class="fa-solid fa-bell"></i>
+        </a>
+      
+        <!-- User Dropdown with Hover Effect -->
+        <div class="relative group">
+          <button class="text-gray-800 hover:text-purple-600 p-2 transition-all duration-300" id="user-icon">
+            <i class="fa-solid fa-user"></i>
+          </button>
+          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48 transition-all duration-300 opacity-0 group-hover:opacity-100">
+            <ul class="text-gray-800">
+              <li class="hover:bg-gray-200 px-4 py-2 transition-all duration-300"><a href="#">Profile</a></li>
+              <li class="hover:bg-gray-200 px-4 py-2 transition-all duration-300"><a href="#">Settings</a></li>
+              <li class="hover:bg-gray-200 px-4 py-2 transition-all duration-300"><a href="#">Logout</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="flex flex-col space-y-2">
-          <a href="#" class="py-2 px-4 hover:bg-gray-200">Courses</a>
-          <a href="#" class="py-2 px-4 hover:bg-gray-200">My Learning</a>
-          <a href="#" class="py-2 px-4 hover:bg-gray-200">Cart</a>
-          <a href="#" class="py-2 px-4 hover:bg-gray-200">Notifications</a>
-          <a href="#" class="py-2 px-4 hover:bg-gray-200">Profile</a>
-        </div>
       </div>
+      
+
+      <!-- Mobile Hamburger Menu -->
+      <button class="md:hidden text-gray-800" id="hamburger-menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
   </nav>
 
+  
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center text-white py-32" style="background-image: url('images/Sale_Img.jpg');">
+    <div class="container mx-auto p-4 pt-6 md:p-6 lg:p-12 bg-white-500"></div>
+    <div class="container mx-auto text-left px-4">
+      <h1 class="text-4xl font-bold mb-4 text-black">Learn Anything, Anytime, Anywhere</h1>
+      <p class="text-lg mb-6 text-black">Find courses on Web Development, Marketing, Data Science, and much more!</p>
+      <a href="#courses" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700">Explore Courses</a>
+    </div>
+  </section>
+</div>
+
+
   <!-- Categories Section -->
-  <div class="bg-white py-4 border-b border-gray-200">
-    <div class="container mx-auto flex flex-wrap justify-center gap-3">
-      <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Development</a>
-      <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Business</a>
-      <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">IT & Software</a>
-      <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Personal Development</a>
-      <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Design</a>
-      <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Marketing</a>
-    </div>
-  </div>
-
-  <!-- Sale Image Section -->
-  <div class="relative">
-    <img src="images/Sale_Img.jpg" alt="Sale Image" class="w-full object-cover h-64 md:h-96">
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-white text-center p-4">
-      <h2 class="text-3xl md:text-4xl font-bold">Udemy Flash Sale - 24 Hours to Save!</h2>
-      <p class="mt-2 text-sm md:text-base">Get the Top Courses for just ₹499. Only one day to save! Lifetime Access to Learn..!</p>
-    </div>
-  </div>
-
-  <!-- Recommended Section -->
-  <section class="container mx-auto py-8">
-    <h2 class="text-3xl font-bold text-center mb-4">Recommended for You</h2>
-    <p class="text-center text-gray-600 mb-8">Pick the best fit</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Course Card -->
-      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-        <img src="images/1.jpg" alt="Mern FullStack" class="w-full h-40 object-cover rounded">
-        <h3 class="mt-2 text-xl font-semibold">Mern FullStack</h3>
-        <p class="text-sm text-gray-600">Mr. S. Abishek</p>
-        <p class="text-sm text-yellow-500">4.3 ⭐⭐⭐⭐</p>
-        <p class="text-lg font-bold">₹4999 <span class="line-through text-gray-500 text-sm">₹9999</span></p>
-      </div>
-      <!-- Repeat similar course cards -->
-      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-        <img src="images/2.jpg" alt="Java Programming" class="w-full h-40 object-cover rounded">
-        <h3 class="mt-2 text-xl font-semibold">Java Programming</h3>
-        <p class="text-sm text-gray-600">Ms. S. Harishma</p>
-        <p class="text-sm text-yellow-500">3.9 ⭐⭐⭐</p>
-        <p class="text-lg font-bold">₹3999 <span class="line-through text-gray-500 text-sm">₹5999</span></p>
-      </div>
-      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-        <img src="images/3.jpg" alt="Python Programming" class="w-full h-40 object-cover rounded">
-        <h3 class="mt-2 text-xl font-semibold">Python Programming</h3>
-        <p class="text-sm text-gray-600">Mr. S. Dinesh Prabhu</p>
-        <p class="text-sm text-yellow-500">4.9 ⭐⭐⭐⭐</p>
-        <p class="text-lg font-bold">₹4999 <span class="line-through text-gray-500 text-sm">₹6999</span></p>
-      </div>
-      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-        <img src="images/4.jpg" alt="Beginner Level C/C++" class="w-full h-40 object-cover rounded">
-        <h3 class="mt-2 text-xl font-semibold">Beginner Level C/C++</h3>
-        <p class="text-sm text-gray-600">Ms. M. Aishwarya</p>
-        <p class="text-sm text-yellow-500">4.9 ⭐⭐⭐⭐</p>
-        <p class="text-lg font-bold">₹2999 <span class="line-through text-gray-500 text-sm">₹4999</span></p>
+  <section class="py-12 bg-gray-200">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-purple-600 mb-8">Popular Categories</h2>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700">Development</a>
+        <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700">Business</a>
+        <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700">IT & Software</a>
+        <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700">Design</a>
+        <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700">Marketing</a>
+        <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700">Personal Development</a>
       </div>
     </div>
   </section>
 
-  <!-- Topics Section -->
-  <section class="bg-white py-8">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-4">Topics Recommended for You</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Web Development</a>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">JavaScript</a>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">CSS</a>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">MongoDB</a>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Python</a>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Docker</a>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Github</a>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">React</a>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700">Java Programming</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Popular Section -->
-  <section class="container mx-auto py-8">
-    <h2 class="text-3xl font-bold text-center mb-4">Most Popular</h2>
-    <p class="text-center text-gray-600 mb-8">Pick the Best Fit</p>
+  <!-- Featured Courses Section -->
+  <section id="courses" class="container mx-auto py-12">
+    <h2 class="text-3xl font-bold text-center mb-6">Featured Courses</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Popular Course Card -->
-      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-        <img src="images/5.jpg" alt="Mern FullStack" class="w-full h-40 object-cover rounded">
-        <h3 class="mt-2 text-xl font-semibold">Mern FullStack</h3>
-        <p class="text-sm text-gray-600">Mr. S. Abishek</p>
+      <!-- Course Card 1 -->
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+        <img src="images/1.jpg" alt="Course 1" class="w-full h-40 object-cover rounded-lg">
+        <h3 class="mt-4 text-xl font-semibold">MERN FullStack Development</h3>
+        <p class="text-sm text-gray-600">Instructor: Mr. S. Abishek</p>
         <p class="text-sm text-yellow-500">4.3 ⭐⭐⭐⭐</p>
-        <p class="text-lg font-bold">₹4999 <span class="line-through text-gray-500 text-sm">₹9999</span></p>
+        <p class="text-lg font-bold text-purple-600">₹4999 <span class="line-through text-gray-500 text-sm">₹9999</span></p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-        <img src="images/1.jpg" alt="Java Programming" class="w-full h-40 object-cover rounded">
-        <h3 class="mt-2 text-xl font-semibold">Java Programming</h3>
-        <p class="text-sm text-gray-600">Ms. S. Harishma</p>
-        <p class="text-sm text-yellow-500">3.9 ⭐⭐⭐</p>
-        <p class="text-lg font-bold">₹3999 <span class="line-through text-gray-500 text-sm">₹5999</span></p>
+
+      <!-- Course Card 2 -->
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+        <img src="images/2.jpg" alt="Course 2" class="w-full h-40 object-cover rounded-lg">
+        <h3 class="mt-4 text-xl font-semibold">Python Programming</h3>
+        <p class="text-sm text-gray-600">Instructor: Mr. S. Dinesh Prabhu</p>
+        <p class="text-sm text-yellow-500">4.7 ⭐⭐⭐⭐⭐</p>
+        <p class="text-lg font-bold text-purple-600">₹3999 <span class="line-through text-gray-500 text-sm">₹5999</span></p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-        <img src="images/2.jpg" alt="Python Programming" class="w-full h-40 object-cover rounded">
-        <h3 class="mt-2 text-xl font-semibold">Python Programming</h3>
-        <p class="text-sm text-gray-600">Mr. S. Dinesh Prabhu</p>
-        <p class="text-sm text-yellow-500">4.9 ⭐⭐⭐⭐</p>
-        <p class="text-lg font-bold">₹4999 <span class="line-through text-gray-500 text-sm">₹6999</span></p>
+
+      <!-- Additional Course Cards -->
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+        <img src="images/3.jpg" alt="Course 3" class="w-full h-40 object-cover rounded-lg">
+        <h3 class="mt-4 text-xl font-semibold">Master Web Development</h3>
+        <p class="text-sm text-gray-600">Instructor: Ms.S.Harishmar</p>
+        <p class="text-sm text-yellow-500">4.5 ⭐⭐⭐⭐</p>
+        <p class="text-lg font-bold text-purple-600">₹4999 <span class="line-through text-gray-500 text-sm">₹7999</span></p>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-        <img src="images/4.jpg" alt="Beginner Level C/C++" class="w-full h-40 object-cover rounded">
-        <h3 class="mt-2 text-xl font-semibold">Beginner Level C/C++</h3>
-        <p class="text-sm text-gray-600">Ms. M. Aishwarya</p>
-        <p class="text-sm text-yellow-500">4.9 ⭐⭐⭐⭐</p>
-        <p class="text-lg font-bold">₹2999 <span class="line-through text-gray-500 text-sm">₹4999</span></p>
+
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+        <img src="images/4.jpg" alt="Course 4" class="w-full h-40 object-cover rounded-lg">
+        <h3 class="mt-4 text-xl font-semibold">Beginner C/C++</h3>
+        <p class="text-sm text-gray-600">Instructor: Ms.M.Aishwarya</p>
+        <p class="text-sm text-yellow-500">4.0 ⭐⭐⭐⭐</p>
+        <p class="text-lg font-bold text-purple-600">₹2999 <span class="line-through text-gray-500 text-sm">₹4999</span></p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-6">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-      <div class="mb-4 md:mb-0">
-        <h1 class="text-2xl font-bold">Udemy</h1>
-        <p>&copy; Abishek S</p>
-      </div>
-      <div class="flex space-x-4">
-        <a href="https://www.linkedin.com/in/abishek04" class="flex items-center hover:text-blue-400">
-          <i class="fab fa-linkedin fa-lg mr-2"></i>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://www.github.com/AbishekSathiyan" class="flex items-center hover:text-blue-400">
-          <i class="fab fa-github fa-lg mr-2"></i>
-          <span>GitHub</span>
-        </a>
-      </div>
+<footer class="bg-gray-800 text-white py-8">
+    <!-- Add LinkedIn and GitHub links -->
+    <div class="mb-6">
+      <a href="https://www.linkedin.com/in/abishek04/" target="_blank" class="text-white hover:text-yellow-500 mx-4">
+        LinkedIn
+      </a>
+      <a href="https://github.com/AbishekSathiyan" target="_blank" class="text-white hover:text-yellow-500 mx-4">
+        GitHub
+      </a>
+       
+      <a href="abishek.sathiyan.2002@gmail.com" target="_blank" class="text-white hover:text-blue-600 mx-4"></a>
     </div>
-  </footer>
-  
-  <!-- Mobile Menu Toggle Script -->
+
+    <p>&copy; 2025 Udemy Clone. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
   <script>
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    // Hamburger Menu Toggle for Mobile
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const menuItems = document.querySelector('.md:hidden');
+
+    hamburgerMenu.addEventListener('click', () => {
+      menuItems.classList.toggle('hidden');
     });
   </script>
 </body>
 </html>
-
-
-
-<p86095890689000-955>6
- 44
- 45
- 6645
- 
- 45
- 45
- 45
- 456
-45
-45
-45
-5
-456546456
-454
-45
-
-45
-45
-45646
-6
-64
-6
-
-6
-6464545
-5645
-6
-6
-6
-44555
-66666
-
-6666 6666 4
-</p86095890689000-955>
